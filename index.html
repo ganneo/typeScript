@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+      integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    #alert {
+      padding: 1rem;
+      margin-bottom: 3rem;
+      background-color: rgba(255, 0, 0, 0.427);
+      width: fit-content;
+      height: fit-content;
+      border-radius: 3px;
+      display: none;
+    }
+
+    #alert p {
+      margin: 0;
+    }
+  </style>
+  <body>
+    <h1>Add two numbers together</h1>
+    <p>
+      Just write the first number in the first input and the second number in
+      the second input and then press the add button.
+    </p>
+    <div id="alert">
+      <p>Be sure to add a <i>number</i> in both of the inputs!</p>
+    </div>
+    <input type="number" id="input1" placeholder="Number 1" />
+    <span>+</span>
+    <input type="number" id="input2" placeholder="Number 2" />
+    <span>=</span>
+    <input type="text" id="value" placeholder="Number 1 + Number 2" disabled />
+    <button id="add" class="button-primary">Add!</button>
+    <script src="app.js"></script>
+  </body>
+</html>
