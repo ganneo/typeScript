@@ -1,3 +1,4 @@
+"use strict";
 var button = document.getElementById("add");
 var input1 = document.getElementById("input1");
 var input2 = document.getElementById("input2");
@@ -10,5 +11,6 @@ button.addEventListener("click", function (e) {
         setTimeout(function () { return (alertEle.style.display = "none"); }, 3500);
         return;
     }
-    answerInput.value = "" + (parseInt(input1.value) + parseInt(input2.value));
+    answerInput.value = JSON.stringify(parseInt(input1.value) + parseInt(input2.value));
 });
+//# sourceMappingURL=app.js.map

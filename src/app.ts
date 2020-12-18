@@ -1,4 +1,4 @@
-const button = document.getElementById("add");
+const button = document.getElementById("add")! as HTMLButtonElement;
 const input1 = document.getElementById("input1")! as HTMLInputElement;
 const input2 = document.getElementById("input2")! as HTMLInputElement;
 const alertEle = document.getElementById("alert")! as HTMLDivElement;
@@ -14,5 +14,7 @@ button.addEventListener("click", (e) => {
     return;
   }
 
-  answerInput.value = `${parseInt(input1.value) + parseInt(input2.value)}`;
+  answerInput.value = JSON.stringify(
+    parseInt(input1.value) + parseInt(input2.value)
+  );
 });
