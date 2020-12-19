@@ -1,46 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
-      integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
       crossorigin="anonymous"
     />
-  </head>
-  <style>
-    #alert {
-      padding: 1rem;
-      margin-bottom: 3rem;
-      background-color: rgba(255, 0, 0, 0.427);
-      width: fit-content;
-      height: fit-content;
-      border-radius: 3px;
-      display: none;
-    }
 
-    #alert p {
-      margin: 0;
-    }
-  </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+      crossorigin="anonymous"
+    />
+
+    <title>Project Manager</title>
+
+    <style>
+      .project {
+        padding: 1rem;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        list-style: none;
+      }
+    </style>
+  </head>
   <body>
-    <h1>Add two numbers together</h1>
-    <p>
-      Just write the first number in the first input and the second number in
-      the second input and then press the add button.
-    </p>
-    <div id="alert">
-      <p>Be sure to add a <i>number</i> in both of the inputs!</p>
+    <nav class="navbar navbar-primary bg-primary sticky-top">
+      <div class="container">
+        <a class="navbar-brand text-white" href="#"> Project Manager </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1>Project Manager</h1>
+      <p class="lead">
+        Add projects that you want to keep track of. Remember, the title has to
+        be 1 to 20 letters, the description needs to be from 0 to 100 letters,
+        and the number of people just has to be greater than 0.
+      </p>
+
+      <div
+        class="alert alert-warning alert-dismissible fade"
+        id="alert"
+        style="display: none"
+        role="alert"
+      >
+        Please check your inputs again!
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+        ></button>
+      </div>
+
+      <form class="border border-2 border-danger p-2 rounded">
+        <div class="mb-3">
+          <label for="title" class="mb-1">Title</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Project title"
+            class="p-1 form-control"
+            style="width: 100%"
+          />
+        </div>
+        <div class="mb-2">
+          <label for="description" class="mb-1">Description</label>
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="2"
+            placeholder="Project description"
+            class="p-1 form-control"
+            style="width: 100%"
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="num-people" class="mb-1">Number of People</label>
+          <input
+            type="number"
+            name="num-people"
+            id="num-people"
+            placeholder="Number of people"
+            class="p-1 form-control"
+            style="width: 100%"
+            min="0"
+          />
+        </div>
+        <button type="submit" id="add-project" class="btn btn-danger">
+          ADD PROJECT
+        </button>
+      </form>
+      <div class="card mt-3 border-danger">
+        <h3 class="header p-3 bg-danger text-white text-center">
+          ACTIVE PROJECTS
+        </h3>
+        <ul class="pe-3 px-3 pb-3">
+          <template>
+            <li style="list-style-type: none" class="mt-3">
+              <div class="project">
+                <h1></h1>
+                <h3>
+                  <span class="num-of-people"></span> people in
+                  <span class="project-title"></span>
+                </h3>
+                <p></p>
+
+                <div class="clearfix">
+                  <button class="btn float-end">
+                    <i class="far fa-trash-alt text-danger fa-2x"></i>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </template>
+        </ul>
+      </div>
+      <div class="card mt-3 mb-3 border-primary">
+        <h3 class="header p-3 bg-primary text-white text-center">
+          FINISHED PROJECTS
+        </h3>
+        <ul class="p-3">
+          <template>
+            <li style="list-style-type: none" class="mt-3">
+              <div class="project">
+                <h1></h1>
+                <h3>
+                  <span class="num-of-people"></span> people in
+                  <span class="project-title"></span>
+                </h3>
+                <p></p>
+
+                <div class="clearfix">
+                  <button class="btn float-end">
+                    <i class="far fa-trash-alt text-danger fa-2x"></i>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </template>
+        </ul>
+      </div>
     </div>
-    <input type="number" id="input1" placeholder="Number 1" />
-    <span>+</span>
-    <input type="number" id="input2" placeholder="Number 2" />
-    <span>=</span>
-    <input type="text" id="value" placeholder="Number 1 + Number 2" disabled />
-    <button id="add" class="button-primary">Add!</button>
-    <script src="./dist/app.js"></script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <script src="dist/app.js"></script>
   </body>
 </html>
